@@ -1,0 +1,1 @@
+{"name":"Kemerovo","lat":55.3550907,"lon":86.0871213,"country":"RU","state":"Kemerovo Oblast–Kuzbass"}

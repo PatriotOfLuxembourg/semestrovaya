@@ -1,0 +1,26 @@
+<configuration>
+    <!-- Вывод в консоль (для действий пользователя) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!-- Фильтр: в консоль только INFO и выше, но не ERROR (можно настроить) -->
+    </appender>
+
+    <!-- Вывод в файл (для ошибок и исключительных ситуаций) -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>weather_errors.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
